@@ -1,0 +1,23 @@
+
+SQL injection is a web security vulnerability that allows
+an attacker to interfere with the queries that an application makes to its database.
+
+
+
+Some SQL injection examples are:
+
+Adding a boolean to a where clause that is always true like ' OR 1=1
+Escaping part of query by entering line comments --
+Ending the initial query and start a new query '; DROP TABLE USERS;
+Connecting data from multiple tables by using UNION
+
+
+//SQL injection prevention
+Do not rely on client-side input validation
+Use a database user with restricted privileges
+Use prepared statements and query parameterization
+Scan your code for SQL injection vulnerabilities
+Use an ORM layer
+Don’t rely on blocklisting
+Perform input validation
+Be careful with stored procedures

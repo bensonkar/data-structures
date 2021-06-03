@@ -1,0 +1,9 @@
+
+#build
+docker-build:
+  image: java-tests-repository:latest
+  stage: build
+  script:
+    - docker build -t java-tests-repository:latest .
+    - docker tag my-registry/hello:${CI_COMMIT_SHORT_SHA}
+    - docker push my-registry/hello:${CI_COMMIT_SHORT_SHA}

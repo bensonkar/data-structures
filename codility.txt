@@ -1,0 +1,93 @@
+
+
+//bash scripting
+
+# write your code in Bash
+
+folders='images music videos logs'
+ext_img="*.jpg *.JPG *.png *.gif"
+ext_log="*.log"
+ext_music="*.mp3 *.aac *.wma *.flac"
+ext_vid="*.mp4 *.mkv *.flv *.avi *.mov *.webm *.wmv"
+
+for folder in $folders
+do
+
+
+if [ $folder == 'images' ]
+then
+mkdir -p $folder
+mv $ext_img $folder 2>/dev/null
+
+elif [ $folder == 'music' ]
+then
+mkdir -p $folder
+mv $ext_music $folder 2>/dev/null
+
+
+elif [ $folder == 'videos' ]
+then
+mkdir -p $folder
+mv $ext_vid $folder 2>/dev/null
+
+elif [ $folder == 'logs' ]
+then
+rm *.log
+#mv $ext_vid $folder 2>/dev/null
+
+
+else
+echo "$(tput setaf 3)Problem creating folder..$(tput sgr0)"
+fi
+
+done
+
+
+
+// company quiz sql
+SELECT user_id from logs
+WHERE login_time >'2020-02-20 11:22:00'
+GROUP BY user_id
+order by MAX(login_time) DESC
+
+
+//world machine in python
+def solution(s):
+    s_arr = s.split(" ")
+    stack = []
+    arr_iter = iter(s_arr)
+    try:
+        while True:
+            v = next(arr_iter)
+            if v.isdigit():
+                stack.append(v)
+            elif v.isdigit() == False:
+                if v == "DUP":
+                    try:
+                        stack.append(stack.copy().pop())
+                    except IndexError:
+                        raise IndexError("index out of range")
+                elif v=="POP":
+                    try:
+                        stack.pop()
+                    except IndexError:
+                        raise IndexError("index out of range")
+                elif v =="+":
+                    try:
+                        v1 = stack.pop()
+                        v0 = stack.pop()
+                        stack.append(int(v1)+int(v0))
+                    except IndexError:
+                        raise IndexError("index out of range")
+                elif v =="-":
+                    try:
+                        v1 = stack.pop()
+                        v0 = stack.pop()
+                        stack.append(int(v1)-int(v0))
+                    except IndexError:
+                        pass
+    except StopIteration:
+        pass
+    if not stack:
+        return -1
+    return stack.pop()
