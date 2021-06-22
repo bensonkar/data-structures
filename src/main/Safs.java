@@ -1,5 +1,7 @@
 package main;
 
+import java.util.*;
+
 /**
  * @author bkariuki
  */
@@ -19,7 +21,6 @@ public class Safs {
     }
 
     public static void main(String[] args) {
-        System.out.println(duplicate("beeenfrrr"));
     }
 
 }
