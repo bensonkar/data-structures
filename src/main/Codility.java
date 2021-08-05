@@ -2,6 +2,7 @@ package main;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Stack;
 
 /**
  * @author bkariuki
@@ -48,6 +49,20 @@ public class Codility {
         }
     }
 
+    static String reverseStringUsingStack(String input) {
+        String output = "";
+        Stack stack = new Stack();
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            stack.push(ch);
+        }
+        while (!stack.isEmpty()) {
+            char ch = (char) stack.pop();
+            output = output + ch;
+        }
+        return output;
+    }
+
     static String randomPass() {
         String res = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         Random random = new Random();
@@ -71,6 +86,7 @@ public class Codility {
         System.out.println(reverse("ben"));
         String benson = "string";
         System.out.println(benson.substring(1));
-        System.out.println("random pass "+randomPass());
+        System.out.println("random pass " + randomPass());
+        System.out.println("reversing string using stack    "+reverseStringUsingStack("benson"));
     }
 }

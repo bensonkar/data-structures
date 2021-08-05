@@ -20,7 +20,12 @@ public class Safs {
         return count;
     }
 
+    static List<String> arr(String... arrays) {
+        return Arrays.asList(arrays);
+    }
+
     public static void main(String[] args) {
+        System.out.println(arr("arr1","arr2","arr3","arr4"));
     }
 
 }
