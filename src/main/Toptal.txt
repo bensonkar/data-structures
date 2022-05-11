@@ -1,0 +1,59 @@
+# Number 2 solution
+// you can also use imports, for example:
+// import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+#Number 2 solution
+function solution(message, K) {
+    // write your code in JavaScript (Node.js 8.9.4)
+        if(K<1) return "";
+    const reK = new RegExp( `^.{0,${K-1}}[^ ](?= |$)` );
+    return ( message.match(reK) || [ "" ] )[0];
+}
+
+class Solution {
+    public int solution(int[] P, int[] S) {
+        // write your code in Java SE 8
+        int response=0;
+        int numberOfPeople=0;
+        int numberOfSeats=0;
+        for(int i=0;i<P.length;i++){
+           numberOfPeople=numberOfPeople+P[i];
+        }
+        for(int j=0;j<S.length;j++){
+            numberOfSeats=numberOfSeats + S[j];
+           if(numberOfPeople<numberOfSeats){
+               numberOfSeats=numberOfSeats + S[j];
+           }
+           else{
+            response=j+1;
+           }
+        }
+        return response;
+    }
+}
+
+
+#Number 3 solution
+  public int solution(int[] A) {
+        // write your code in Java SE 11
+
+         PriorityQueue<Double>priority_queue = new PriorityQueue<Double>((a,b) -> Double.compare(b,a));
+        double total = 0.0;
+        int minimum_filters_count = 0;
+        for(int i=0; i < A.length; i++){
+            total+= A[i];
+            priority_queue.offer((double)A[i]);
+        }
+        double target = total/2;
+        while(!priority_queue.isEmpty() && total > target){
+            double popped = priority_queue.poll();
+            total-= popped/2;
+            minimum_filters_count++;
+            priority_queue.offer(popped/2);
+        }
+        return minimum_filters_count;
+
+    }

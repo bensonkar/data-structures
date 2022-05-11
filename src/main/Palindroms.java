@@ -31,17 +31,36 @@ public class Palindroms {
     }
 
     public static void main(String[] args) {
-        System.out.println(palindrom("level"));
-        System.out.println(palindrom(1144));
-        System.out.println(numberPalindrom(11));
-        System.out.println(numberPalindrom(122));
-        String s = "benson";
-        String res = "";
-        int len = s.length() - 1;
-        while (len >= 0) {
-            res = res + s.charAt(len);
-            len--;
+//        System.out.println(palindrom("level"));
+//        System.out.println(palindrom(1144));
+//        System.out.println(numberPalindrom(11));
+//        System.out.println(numberPalindrom(122));
+        System.out.println(pal("leves"));
+//        String s = "benson";
+//        String res = "";
+//        int len = s.length() - 1;
+//        while (len >= 0) {
+//            res = res + s.charAt(len);
+//            len--;
+//        }
+//        System.out.println("reversed string using tradition method " + res);
+    }
+
+    static boolean pal(String S) {
+        String str = S, reverseStr = "";;
+        int strLength = str.length();
+
+        for (int i = (strLength - 1); i >=0; --i) {
+            reverseStr = reverseStr + str.charAt(i);
         }
-        System.out.println("reversed string using tradition method " + res);
+
+        if (str.toLowerCase().equals(reverseStr.toLowerCase())) {
+            System.out.println(str + " is a Palindrome String.");
+            return true;
+        }
+        else {
+            System.out.println(str + " is not a Palindrome String.");
+            return false;
+        }
     }
 }

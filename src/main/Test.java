@@ -36,14 +36,6 @@ public class Test {
         return factorial;
     }
 
-    public static void happyValentineVivian() {
-        int i = 0;
-        while (i <= 10) {
-            System.out.println("I love you so much vivian.");
-            i++;
-        }
-    }
-
     public static void iterator() {
         List<String> names = Arrays.asList("deploy", "log", "test", "code", "debug", "error");
         Iterator it = names.iterator();
@@ -74,7 +66,6 @@ public class Test {
         test.calculate(5);
         Test.calculate(6);
         Test.factorial(6);
-        Test.happyValentineVivian();
         Test.maps();
         Test.iterator();
         Test.fact(4);

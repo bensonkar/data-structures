@@ -7,43 +7,22 @@ import java.util.Arrays;
  */
 public class Saf {
 
-    static int solution(String S) {
-        StringBuilder sb = new StringBuilder(S);
-        int length = 0;
-        String string;
-
-        if (S.equals("aaaabbbb")) {
-            int k = 1;
-            do {
-                string = S.replaceAll("aaabbbb", "");
-                length = string.length();
-                System.out.println("length " + length);
-                break;
-            } while (k < S.length());
-            return length;
+    static int solution(int[] A) {
+        int result = 0;
+        Arrays.sort(A);
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] < A[A.length -1]) {
+                A[A.length - 1] = A[A.length - 1] -1;
+                A[i] = A[i] +1;
+                result ++;
+            }
+            if (A[i] < A[i ++]) {
+                A[i] = A[i] +1;
+                result++;
+            }
+            result++;
         }
-        if (S.equals("ccaaffddecee")) {
-            sb.deleteCharAt(7);
-            string = S.replaceAll("e", "").replaceAll("f", "")
-                    .replace("dd", "d");
-            length = string.length();
-            System.out.println("*************** string " + string);
-//            length = S.lengthgth();
-            return length;
-        }
-        if (S.contentEquals("eeee")) {
-            String res = S.replaceAll("eeee", "");
-            length = res.length();
-            return length;
-        }
-        if (S.equals("example")) {
-            int n = 0;
-            do {
-
-            } while (n <= 300000);
-            return length;
-        }
-        return S.length();
+        return result;
     }
 
     static int solutions(String str) {
@@ -59,10 +38,31 @@ public class Saf {
         return len;
     }
 
+    static String stringAppear(String str) {
+        int count = 0, i = 0;
+        String res = "";
+        while (i < str.length() -1) {
+            if (str.charAt(i) == str.charAt(i +1)) {
+                count++;
+                res = String.valueOf(str.charAt(i));
+            }
+//            if (count == 2) {
+//                res = String.valueOf(str.charAt(i));
+//            }
+            i++;
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
-        System.out.println(solution("aaaabbbb"));
-        System.out.println(solution("ccaaffddecee"));
-        System.out.println(solution("eeee"));
+        int[] data = {1,2,2,4};
+        int[] data2 = {4,2,4,6};
+        int[] data3 = {1,1,2,1};
+//        System.out.println(solution(data));
+//        System.out.println(solution(data2));
+//        System.out.println(solution(data3));
+        System.out.println(stringAppear("aba"));
+
 
 //        System.out.println(solutions("aaab"));
         String name = "benson kariuki";
